@@ -6,11 +6,6 @@ metadata:
   name: mynetflix
   namespace: demo
 spec:
-  externalTrafficPolicy: Cluster
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   #- nodePort: 31797
   - port: 80
