@@ -23,7 +23,7 @@ spec:
         app: apache-web
     spec:
       containers:
-      - image: vimal13/apache-webserver-php
+      - image: agus3rdyoga/mynetflix
         imagePullPolicy: Always
         name: apache-webserver-php
         resources: {}
