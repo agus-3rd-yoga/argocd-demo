@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: apache-web
-  name: apache-web
+    app: mynetflix
+  name: mynetflix
   namespace: demo
 spec:
   externalTrafficPolicy: Cluster
@@ -17,6 +17,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: apache-web
+    app: mynetflix
   sessionAffinity: None
   #type: NodePort

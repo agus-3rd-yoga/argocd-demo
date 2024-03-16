@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: apache-web
-  name: apache-web
+    app: mynetflix
+  name: mynetflix
   namespace: demo
 spec:
   progressDeadlineSeconds: 600
@@ -11,7 +11,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: apache-web
+      app: mynetflix
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,13 +20,21 @@ spec:
   template:
     metadata:
       labels:
-        app: apache-web
+        app: mynetflix
     spec:
       containers:
-      - image: agus3rdyoga/mynetflix
+      - image: docker.io/agus3rdyoga/mynetflix
         imagePullPolicy: Always
-        name: apache-webserver-php
-        resources: {}
+        name: mynetflixserver-php
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
