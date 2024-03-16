@@ -14,4 +14,4 @@ spec:
   selector:
     app: mynetflix
   sessionAffinity: None
-  #type: NodePort
+  type: LoadBalancer
